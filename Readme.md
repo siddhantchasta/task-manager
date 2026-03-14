@@ -54,17 +54,27 @@ Security
 
 ## Architecture
 
-Client (Next.js)
-↓
-AES Encrypted Request
-↓
-Express Backend (JWT Authentication)
-↓
-MongoDB Atlas
+           ┌──────────────────────┐
+           │  Next.js Frontend    │
+           │  (Vercel Deployment) │
+           └─────────┬────────────┘
+                     │
+                     │ AES Encrypted API Requests
+                     │
+           ┌─────────▼────────────┐
+           │  Express Backend     │
+           │  (Render Deployment) │
+           │  JWT Authentication  │
+           └─────────┬────────────┘
+                     │
+                     │
+             ┌───────▼────────┐
+             │   MongoDB      │
+             │   Atlas DB     │
+             └────────────────┘
 
 The frontend encrypts request payloads before sending them to the backend.
 The backend decrypts incoming data, processes the request, and returns encrypted responses.
-
 ---
 
 ## Screenshots
