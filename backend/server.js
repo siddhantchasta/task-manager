@@ -10,7 +10,10 @@ const taskRoutes = require("./routes/taskRoutes")
 const app = express()
 
 app.use(cors({
- origin: "http://localhost:3000",
+ origin: [
+  "http://localhost:3000",
+  "https://task-engine.onrender.com"
+ ],
  credentials: true
 }))
 
